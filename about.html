@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% for key, value in response.items() %}
+	{% if key == 'saleResponse' %}
+		{% for key, value in value.items() %}
+			<br>
+			<h1>{{key}}, {{value}}</h1>
+		{% endfor %}
+	{% else %}
+	<br>
+	<h1>{{key}}, {{value}}</h1>
+	{% endif %}
+{% endfor %}
+{% endblock %}
