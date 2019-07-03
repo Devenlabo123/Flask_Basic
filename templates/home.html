@@ -3,44 +3,64 @@
 {% block body %}
 	<div class ="jumbotron text-center">
 		<h1>Welcome To FlaskApp</h1>
-		<p class="lead">This application is built on the Python Flask framework</p>
 	</div>
 	
 	<h2>HTML Forms</h2>
 
-<form action="/" method="post">
+<form action="/" method="POST">
+  <h3>Configuration</h3><br>
+  URL:<br>
+  <input type="text" name="url" required>
+  <br>
+
+  <h3>Simple Auth</h3><br>
   Report Group:<br>
-  <input type="text" name="Report_Group">
+  <input type="text" name="auth_report_group" required>
   <br>
   Order ID:<br>
-  <input type="text" name="Order_ID">
-  <br>Amount:<br>
-    <input type="text" name="Amount">
-  <br>Order Source<br>
-    <input type="text" name="Order_Source">
-  <br>ID:<br>
-    <input type="text" name="ID">
+  <input type="text" name="auth_order_id" required>
+  Amount:<br>
+    <input type="text" name="amount" required>
+  Order Source<br>
+    <input type="text" name="order_source" required>
+  ID:<br>
+    <input type="text" name="auth_id" required>
   <br><br>
-  <br><br>
-  <br><br>
-  <br>Card Number<br>
-    <input type="text" name="Card_Number">
-  <br>EXP Date<br>
-    <input type="text" name="Exp_Date">
-  <br><br>
-  <input type="submit" value="Submit">
+  Card Number<br>
+    <input type="text" name="card_number" required>
+  Expiration Date<br>
+    <input type="text" name="exp_date" required>
+  Card Type<br>
+    <input type="text" name="card_type" required>
+  <br>
+
+  <h3>Simple Capture</h3><br>
+  Report Group:<br>
+  <input type="text" name="capture_report_group" required>
+  <br>
+  CNP Txn ID:<br>
+  <input type="text" name="cnp_txn_id" required>
+  Paypal Notes:<br>
+    <input type="text" name="paypal_notes" required>
+  Order Source<br>
+    <input type="text" name="capture_order_source" required>
+  Pin:<br>
+    <input type="text" name="pin" required>
+  ID:<br>
+    <input type="text" name="capture_id" required>
+  <br>
+
+  <input type="submit" value="submit">
 </form> 
 
-	{% for key, value in response.items() %}
-		{% if key == 'saleResponse' %}
-			{% for key, value in value.items() %}
-				<br>
-				<h1>{{key}}, {{value}}</h1>
-			{% endfor %}
-		{% else %}
-		<br>
-		<h1>{{key}}, {{value}}</h1>
-		{% endif %}
-	{% endfor %}
+{% if capture %}
+  <h2>Capture Response</h2>
+  {{capture}}
+{% endif %}
+
+{% if auth %}
+  <h2>Auth Response</h2>
+  {{auth}}
+{% endif %}
 
 {% endblock %}

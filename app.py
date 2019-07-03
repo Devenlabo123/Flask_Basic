@@ -3,11 +3,16 @@ from data import *
 
 app = Flask(__name__)
 
-Response=salesResponse()
-
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('home.html', response=Response)
+    if request.method == 'POST':
+        result = request.form
+        config = getConfig(result)
+        capture = processCapture(result, config)
+        auth = processAuth(result, config)
+        return render_template('home.html', capture=capture, auth=auth)
+    else:
+        return render_template('home.html')
      
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,24 +1,42 @@
 from vantivsdk import *
 
-def salesResponse():
-    conf = utils.Configuration()
+def processAuth(result, conf):
+    authorization = fields.authorization()
+    authorization.reportGroup = result['auth_report_group']
+    authorization.orderId = result['order_id']
+    authorization.amount = result['amount']
+    authorization.orderSource = result['auth_order_source']
+    authorization.id = result['auth_id']
 
-    transaction = fields.sale()
-    transaction.reportGroup = "Default Report Group"
-    transaction.orderId = '12344'
-    transaction.amount = 106
-    transaction.orderSource = 'ecommerce'
-    transaction.id = 'ThisIsID'
-    
     card = fields.cardType()
-    card.number = '4100000000000000'
-    card.expDate = '1210'
-    card.type = 'VI'
-    
-    transaction.card = card
-    
-    response = online.request(transaction, conf)
-    print(response)
+    card.number = result['card_number']
+    card.expDate = result['exp_date']
+    card.type = result['card_type']
+
+    authorization.card = card
+
+    response = online.request(authorization, conf)
     return response
+
+def processCapture(result, conf):
+    transactions = fields.capture()
+    transactions.reportGroup = result['capture_report_group']
+    transactions.cnpTxnId= result['cnp_txn_id']
+    transactions.amount = result['amount']
+    transactions.payPalNotes= result['paypal_notes']
+    transactions.orderSource = result['capture_order_source']
+    transactions.pin = result['pin']
+    transactions.id = result['capture_id']
+
+    response = online.request(transactions, conf)
+    return response
+
+
+def getConfig(result):
+    conf = utils.Configuration()
+    conf.url = result['url']
+    return conf
+
+
 
     
