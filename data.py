@@ -4,7 +4,7 @@ def processAuth(result, conf):
     authorization = fields.authorization()
     authorization.reportGroup = result['auth_report_group']
     authorization.orderId = result['order_id']
-    authorization.amount = result['amount']
+    authorization.amount = result['auth_amount']
     authorization.orderSource = result['auth_order_source']
     authorization.id = result['auth_id']
 
@@ -22,7 +22,7 @@ def processCapture(result, conf):
     transactions = fields.capture()
     transactions.reportGroup = result['capture_report_group']
     transactions.cnpTxnId= result['cnp_txn_id']
-    transactions.amount = result['amount']
+    transactions.amount = result['capture_amount']
     transactions.payPalNotes= result['paypal_notes']
     transactions.orderSource = result['capture_order_source']
     transactions.pin = result['pin']

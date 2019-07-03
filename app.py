@@ -1,11 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from data import *
 
 app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST':
+    if request == None:
+        return render_template('home.html')
+    elif request.method == 'POST':
         result = request.form
         config = getConfig(result)
         capture = processCapture(result, config)
