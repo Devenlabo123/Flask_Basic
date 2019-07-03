@@ -35,6 +35,12 @@ def processCapture(result, conf):
 def getConfig(result):
     conf = utils.Configuration()
     conf.url = result['url']
+    conf.multiSiteUrl1 = result['url']
+    conf.multiSiteUrl2 = result['url']
+    conf.proxy = result['proxy']
+    conf.user = result['user']
+    conf.password = result['password']
+    conf.merchantId = result['merchant_id']
     return conf
 
 
