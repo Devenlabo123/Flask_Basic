@@ -1,32 +1,5 @@
 from vantivsdk import *
 
-def Articles():
-    articles = [
-        {
-            'id': 1,
-            'title': 'Article One',
-            'body':'A bunch of text goes here',
-            'author': 'Joe Smith',
-            'create_date':'04-25-2017'
-            },
-        {
-            'id': 2,
-            'title': 'Article Two',
-            'body':'A bunch of text goes here',
-            'author': 'John Smith',
-            'create_date':'04-25-2017'
-            },
-        {
-            'id': 3,
-            'title': 'Article THREE',
-            'body':'A bunch of text goes here',
-            'author': 'jOSH Smith',
-            'create_date':'04-25-2017'}
-    
-        ]
-    
-    return articles
-
 def salesResponse():
     conf = utils.Configuration()
 
