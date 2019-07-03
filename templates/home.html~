@@ -23,6 +23,7 @@
   <h3>Simple Auth</h3>
   <br>Report Group:<br>
   <input type="text" name="auth_report_group">
+  <br>
   <br>Order ID:<br>
   <input type="text" name="order_id" >
   <br>Amount:<br>
