@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class ="jumbotron text-center">
+		<h1>Welcome To FlaskApp</h1>
+		<p class="lead">This application is built on the Python Flask framework</p>
+	</div>
+	
+	<h2>HTML Forms</h2>
+
+<form action="/" method="post">
+  Report Group:<br>
+  <input type="text" name="Report_Group">
+  <br>
+  Order ID:<br>
+  <input type="text" name="Order_ID">
+  <br>Amount:<br>
+    <input type="text" name="Amount">
+  <br>Order Source<br>
+    <input type="text" name="Order_Source">
+  <br>ID:<br>
+    <input type="text" name="ID">
+  <br><br>
+  <br><br>
+  <br><br>
+  <br>Card Number<br>
+    <input type="text" name="Card_Number">
+  <br>EXP Date<br>
+    <input type="text" name="Exp_Date">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+{% endblock %}
