@@ -7,7 +7,8 @@ app = Flask(__name__)
 def index():
     if request == None:
         return render_template('home.html')
-    elif request.method == 'POST':
+    elif request.method == 'POST' and 'submitone' in request.form:
+        print("Form one submitted")
         result = request.form
         config = getConfig(result)
         capture = processCapture(result, config)

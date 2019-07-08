@@ -5,8 +5,6 @@
 		<h1>Worldpay - Python SDK Web Application</h1>
 	</div>
 	
-
-<form action="/" method="POST">
   <h3>Configuration</h3>
   <br>URL:<br>
   <input type="text" name="url">
@@ -19,7 +17,11 @@
   <br>Merchant ID:<br>
   <input type="text" name="merchant_id" >
   <br>
-
+  <input type="Submit" value="submit">
+  
+ <div style="display: flex;"> 
+<div id="formone" style="float:left"">
+<form action="/" method="POST" id="formone">
   <h3>Simple Auth</h3>
   <br>Report Group:<br>
   <input type="text" name="auth_report_group">
@@ -31,7 +33,6 @@
     <input type="text" name="auth_order_source" >
   <br>ID:<br>
     <input type="text" name="auth_id" >
-  <br><br>
   <br>Card Number<br>
     <input type="text" name="card_number" >
   <br>Expiration Date<br>
@@ -39,7 +40,13 @@
   <br>Card Type<br>
     <input type="text" name="card_type" >
   <br>
-
+  <input type="Submit" name="submitone">
+  
+  </form> 
+ </div>
+ 
+<div style="float:right;margin-left:200px">
+<form action="/" method="POST" id="formtwo">
   <h3>Simple Capture</h3>
   Report Group:<br>
   <input type="text" name="capture_report_group" >
@@ -57,8 +64,10 @@
   <input type="text" name="capture_id" >
   <br>
 
-  <input type="Submit" value="submit">
+  <input type="Submit" name="submittwo">
 </form> 
+<div/>
+<div/>
 
 {% if capture %}
   <h2>Capture Response</h2>
