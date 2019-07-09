@@ -14,6 +14,7 @@ def processAuth(result, conf):
     card.type = result['card_type']
 
     authorization.card = card
+    
 
     response = online.request(authorization, conf)
     return response
