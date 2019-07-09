@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from data import *
 
+#from flask_basic.data import *
+
 app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])

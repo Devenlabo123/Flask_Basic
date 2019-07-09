@@ -19,7 +19,7 @@
 
         <br>URL:
         <br>
-        <input type="text" name="url">
+        <input type="text" name="url" type="url" >
         <br>Proxy:
         <br>
         <input type="text" name="proxy">
@@ -46,8 +46,8 @@
                     <td width="35%">
 
                         <h3>Simple Auth <input type="checkbox" id="auth_checkbox" name="auth_checkbox"/></h3>
-                        <br>
-                        <br>Report Group:
+                        
+                        Report Group:
                         <br>
                         <input type="text" name="auth_report_group">
                         <br>Order ID:
@@ -55,19 +55,19 @@
                         <input type="text" name="order_id">
                         <br>Amount:
                         <br>
-                        <input type="text" name="auth_amount">
+                        <input type="number" name="auth_amount" >
                         <br>Order Source
                         <br>
                         <input type="text" name="auth_order_source">
                         <br>ID:
                         <br>
-                        <input type="text" name="auth_id">
+                        <input type="number" name="auth_id">
                         <br>Card Number
                         <br>
-                        <input type="text" name="card_number">
+                        <input type="number" name="card_number">
                         <br>Expiration Date
                         <br>
-                        <input type="text" name="exp_date">
+                        <input type="number" name="exp_date">
                         <br>Card Type
                         <br>
                         <input type="text" name="card_type">
@@ -79,10 +79,10 @@
                         <input type="text" name="capture_report_group">
                         <br>CNP Txn ID:
                         <br>
-                        <input type="text" name="cnp_txn_id">
+                        <input type="number" name="cnp_txn_id">
                         <br>Amount:
                         <br>
-                        <input type="text" name="capture_amount">
+                        <input type="number" name="capture_amount">
                         <br>Paypal Notes:
                         <br>
                         <input type="text" name="paypal_notes">
@@ -91,10 +91,10 @@
                         <input type="text" name="capture_order_source">
                         <br>Pin:
                         <br>
-                        <input type="text" name="pin">
+                        <input type="number" name="pin">
                         <br>ID:
                         <br>
-                        <input type="text" name="capture_id">
+                        <input type="number" name="capture_id">
                         <br>
                     </td>
                 </tr>
@@ -116,9 +116,25 @@
     </form>
 
 </body>
+<style> 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    height: 29px;
+    width: 188px;
+}
 
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    height: 29px;
+    width: 188px;
+}
+
+</style>
 </html>
-</script>
+
 
 {% if capture %}
   <h2>Capture Response</h2>
